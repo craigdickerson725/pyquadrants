@@ -152,7 +152,7 @@ class PyQuadrants:
     It switches between players and checks for the end of the game
     """
     def play_game(self):
-        print("Welcome to Shape Wars!")
+        print("Welcome to PyQuadrants!")
         print("Player is 'X' and Computer is 'Y'.")
         print("Take turns to place your piece on the board.")
         print("Control more territories (rows, columns, or quadrants) to win.\n")
@@ -186,4 +186,28 @@ class PyQuadrants:
 
         self.end_game()
 
+    
+    """
+    This is for the end of the game
+    It waits for the player to press a key to start a new game
+    """
+    def end_game(self):
+        print("Click any key to begin a new game.")
+        self.wait_for_key()
+        self.reset_game()
+        self.play_game()
+
+    def wait_for_key(self):
+        if os.name == 'nt':  # For Windows
+            import msvcrt
+            msvcrt.getch()
+        else:  # For Unix-based systems (Linux, macOS)
+            import termios, tty
+            fd = sys.stdin.fileno()
+            old_settings = termios.tcgetattr(fd)
+            try:
+                tty.setraw(sys.stdin.fileno())
+                sys.stdin.read(1)
+            finally:
+                termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
 
