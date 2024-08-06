@@ -83,10 +83,32 @@ class PyQuadrants:
         start_row, start_col = 2 * (row // 2), 2 * (col // 2)
         self.territories[current_player] += self.score_territory([self.board[i][j] for i in range(start_row, start_row + 2) for j in range(start_col, start_col + 2)], piece)
 
+    """
+    This checks how many points to give
+    """
     def score_territory(self, lst, piece):
         if lst.count(piece) == 4:
             return 2
         elif lst.count(piece) == 3:
             return 1
         return 0
+
+    """
+    This asks for player to input move, and validates the move
+    """
+    def player_move(self):
+        while True:
+            try:
+                row = int(input("Enter row (0-3): "))
+                col = int(input("Enter col (0-3): "))
+                if 0 <= row <= 3 and 0 <= col <= 3:
+                    if self.place_piece(row, col, 'X'):
+                        break
+                    else:
+                        print("Invalid move! Try again.")
+                else:
+                    print("Invalid input! Please enter a number between 0 and 3.")
+            except ValueError:
+                print("Invalid input! Enter numbers for row and col.")
+        
 
