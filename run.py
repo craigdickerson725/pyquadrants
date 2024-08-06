@@ -147,3 +147,43 @@ class PyQuadrants:
 
         return gain  
 
+    """
+    This is the main game loop
+    It switches between players and checks for the end of the game
+    """
+    def play_game(self):
+        print("Welcome to Shape Wars!")
+        print("Player is 'X' and Computer is 'Y'.")
+        print("Take turns to place your piece on the board.")
+        print("Control more territories (rows, columns, or quadrants) to win.\n")
+
+        while True:
+            self.print_board()
+            current_player = self.players[self.current_player_index]
+            print(f"Territories - Player: {self.territories['Player']}, Computer: {self.territories['Computer']}")
+            
+            if current_player == "Player":
+                print("Player's turn")
+                self.player_move()
+            else:
+                print("Computer's turn")
+                self.ai_move()
+
+            self.current_player_index = (self.current_player_index + 1) % 2
+
+            if all(self.board[row][col] != '.' for row in range(4) for col in range(4)):
+                self.print_board()
+                player_territories = self.territories['Player']
+                computer_territories = self.territories['Computer']
+                print(f"Final Score - Player: {player_territories}, Computer: {computer_territories}")
+                if player_territories > computer_territories:
+                    print("Player wins!")
+                elif computer_territories > player_territories:
+                    print("Computer wins!")
+                else:
+                    print("It's a draw!")
+                break
+
+        self.end_game()
+
+
