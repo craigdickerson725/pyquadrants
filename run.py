@@ -69,5 +69,24 @@ class PyQuadrants:
             self.update_territories(row, col, piece)
             return True
         return False
+    
+    def update_territories(self, row, col, piece):
+        current_player = self.players[self.current_player_index]
 
+        # Checks the row
+        self.territories[current_player] += self.score_territory([self.board[row][i] for i in range(4)], piece)
         
+        # Checks the column
+        self.territories[current_player] += self.score_territory([self.board[i][col] for i in range(4)], piece)
+        
+        # Checks the quadrant
+        start_row, start_col = 2 * (row // 2), 2 * (col // 2)
+        self.territories[current_player] += self.score_territory([self.board[i][j] for i in range(start_row, start_row + 2) for j in range(start_col, start_col + 2)], piece)
+
+    def score_territory(self, lst, piece):
+        if lst.count(piece) == 4:
+            return 2
+        elif lst.count(piece) == 3:
+            return 1
+        return 0
+
