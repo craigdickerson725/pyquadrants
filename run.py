@@ -21,3 +21,13 @@ class PyQuadrants:
             'quadrant4': Back.BLUE,
             'endc': Style.RESET_ALL
         }
+
+"""
+This is to initialize/reset the game board, player info, and territories
+"""
+def reset_game(self):
+    self.board = [['.' for _ in range(4) for _ in range(4)]]
+    self.players = ['Player', 'Computer']
+    self.pieces = ['X', 'Y'] # X is for the player, Y is for the computer
+    self.current_player_index = 0
+    self.territories = {'Player': 0, 'Computer': 0}
