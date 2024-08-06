@@ -53,3 +53,21 @@ class PyQuadrants:
             return self.colors['quadrant_3'] + cell
         else:
             return self.colors['quadrant_4'] + cell
+
+    """
+    This is to make sure a move is valid
+    """
+    def is_valid_move(self, row, col):
+        return self.board[row, col] == '.'
+
+    """
+    This places a piece on the board and updates the territories
+    """
+    def place_piece(self, row, col, piece):
+        if self.is_valid_move(row, col):
+            self.board[row, col] = piece
+            self.update_territories(row, col, piece)
+            return True
+        return False
+
+        
