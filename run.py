@@ -217,5 +217,5 @@ class PyQuadrants:
 This initializes and starts the game
 """
 if __name__ == "__main__":
-    game = ShapeWars()
+    game = PyQuadrants()
     game.play_game()
