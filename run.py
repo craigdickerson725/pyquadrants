@@ -1,5 +1,8 @@
-import random
-from colorama import Fore, Back, Style, init
+import random # This is for the computer ai
+from colorama import Fore, Back, Style, init # This is for coloring the quadrants
+"""
+The os and sys import is for the 'any key' input at the end of the game
+"""
 import os
 import sys
 
@@ -210,4 +213,9 @@ class PyQuadrants:
                 sys.stdin.read(1)
             finally:
                 termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
-
+"""
+This initializes and starts the game
+"""
+if __name__ == "__main__":
+    game = ShapeWars()
+    game.play_game()
