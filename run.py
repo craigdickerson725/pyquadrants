@@ -1,13 +1,13 @@
 import random # This is for the computer ai
-from colorama import Fore, Back, Style, init # This is for coloring the quadrants
+from colorama import Fore, Back, Style, init # This is for coloring quadrants
 """
-The os and sys import is for the 'any key' input at the end of the game
+The os and sys imports are for the 'any key' input at the end of the game
 """
 import os
 import sys
 
 """
-To initialize colorama, which is needed to color the quadrants
+Initializes colorama to color the quadrants
 """
 init()
 
@@ -18,10 +18,10 @@ class PyQuadrants:
     def __init__(self):
         self.reset_game()
         self.colors = {
-            'quadrant1': Back.RED,
-            'quadrant2': Back.GREEN,
-            'quadrant3': Back.YELLOW,
-            'quadrant4': Back.BLUE,
+            'quadrant_1': Back.RED,
+            'quadrant_2': Back.GREEN,
+            'quadrant_3': Back.YELLOW,
+            'quadrant_4': Back.BLUE,
             'endc': Style.RESET_ALL
         }
 
@@ -29,9 +29,9 @@ class PyQuadrants:
     This is to initialize/reset the game board, player info, and territories
     """
     def reset_game(self):
-        self.board = [['.' for _ in range(4) for _ in range(4)]]
+        self.board = [['.' for _ in range(4)] for _ in range(4)]
         self.players = ['Player', 'Computer']
-        self.pieces = ['X', 'Y'] # X is for the player, Y is for the computer
+        self.pieces = ['X', 'Y']  # X for Player, Y for Computer
         self.current_player_index = 0
         self.territories = {'Player': 0, 'Computer': 0}
 
@@ -61,21 +61,21 @@ class PyQuadrants:
     This is to make sure a move is valid
     """
     def is_valid_move(self, row, col):
-        return self.board[row, col] == '.'
+        return self.board[row][col] == '.'
 
     """
     This places a piece on the board and updates the territories
     """
     def place_piece(self, row, col, piece):
         if self.is_valid_move(row, col):
-            self.board[row, col] = piece
+            self.board[row][col] = piece
             self.update_territories(row, col, piece)
             return True
         return False
-    
+
     def update_territories(self, row, col, piece):
         current_player = self.players[self.current_player_index]
-
+        
         # Checks the row
         self.territories[current_player] += self.score_territory([self.board[row][i] for i in range(4)], piece)
         
@@ -117,7 +117,7 @@ class PyQuadrants:
     """
     This is to create ai for the computer's move.
     It will help the computer to pick an effective move.
-    """ 
+    """
     def ai_move(self):
         best_move = None
         max_gain = -1
@@ -138,17 +138,17 @@ class PyQuadrants:
     def potential_gain(self, row, col, piece):
         gain = 0
 
-        # Checks the gain potential in a row
+        # Checks gain potential in a row
         gain += self.score_territory([self.board[row][i] for i in range(4)], piece)
 
-        # Checks the gain potential in a column
+        # Checks gain potential in a column
         gain += self.score_territory([self.board[i][col] for i in range(4)], piece)
 
-        # Checks the gain potential in a quadrant
+        # Checks gain potential in a quadrant
         start_row, start_col = 2 * (row // 2), 2 * (col // 2)
         gain += self.score_territory([self.board[i][j] for i in range(start_row, start_row + 2) for j in range(start_col, start_col + 2)], piece)
 
-        return gain  
+        return gain
 
     """
     This is the main game loop
@@ -189,7 +189,6 @@ class PyQuadrants:
 
         self.end_game()
 
-    
     """
     This is for the end of the game
     It waits for the player to press a key to start a new game
@@ -213,6 +212,7 @@ class PyQuadrants:
                 sys.stdin.read(1)
             finally:
                 termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+
 """
 This initializes and starts the game
 """
