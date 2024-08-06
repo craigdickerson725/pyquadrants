@@ -110,5 +110,40 @@ class PyQuadrants:
                     print("Invalid input! Please enter a number between 0 and 3.")
             except ValueError:
                 print("Invalid input! Enter numbers for row and col.")
+
+    """
+    This is to create ai for the computer's move.
+    It will help the computer to pick an effective move.
+    """ 
+    def ai_move(self):
+        best_move = None
+        max_gain = -1
         
+        for row in range(4):
+            for col in range(4):
+                if self.is_valid_move(row, col):
+                    potential_gain = self.potential_gain(row, col, 'Y')
+                    if potential_gain > max_gain:
+                        max_gain = potential_gain
+                        best_move = (row, col)
+        
+        if best_move:
+            row, col = best_move
+            self.place_piece(row, col, 'Y')
+            print(f"Computer placed Y at ({row}, {col})")
+    
+    def potential_gain(self, row, col, piece):
+        gain = 0
+
+        # Checks the gain potential in a row
+        gain += self.score_territory([self.board[row][i] for i in range(4)], piece)
+
+        # Checks the gain potential in a column
+        gain += self.score_territory([self.board[i][col] for i in range(4)], piece)
+
+        # Checks the gain potential in a quadrant
+        start_row, start_col = 2 * (row // 2), 2 * (col // 2)
+        gain += self.score_territory([self.board[i][j] for i in range(start_row, start_row + 2) for j in range(start_col, start_col + 2)], piece)
+
+        return gain  
 
