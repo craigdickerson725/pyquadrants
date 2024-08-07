@@ -183,10 +183,16 @@ class PyQuadrants:
 
     def instructions(self):
         clear()
-        print("Player is 'X' and Computer is 'Y'.")
-        print("Take turns to place your piece on the board.")
-        print("Control more territories (rows, columns, or quadrants) to win.\n")
-        # additional instructions go here
+        print("Instructions:\n")
+        print(" \n")
+        print("-The game board has four rows (horizontal), four columns (vertical), and four quadrants (colored regions).\n")
+        print("-Players take turn placing their game pieces on the board (Player is X, the Computer is Y).\n")
+        print("-Control more territories (rows, columns, or quadrants) to win.\n")
+        print("-Control is when one player occupies 3 of 4 available spaces in a row, column, or quadrant.\n")
+        print("-Complete Control is when one player occupies all four spaces of a row, column, or quadrant.\n")
+        print("-Control is worth 1 point, and Complete Control is worth 3 points.\n")
+        print("-When all spaces on the game board are occupied, the game is over, and the player with the most points wins.\n")
+        print("GOOD LUCK!\n")
         input("Press ENTER to continue")
         clear()
 
