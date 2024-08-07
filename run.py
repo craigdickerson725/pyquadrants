@@ -184,7 +184,6 @@ class PyQuadrants:
     def instructions(self):
         clear()
         print("Instructions:\n")
-        print(" \n")
         print("-The game board has four rows (horizontal), four columns (vertical), and four quadrants (colored regions).\n")
         print("-Players take turn placing their game pieces on the board (Player is X, the Computer is Y).\n")
         print("-Control more territories (rows, columns, or quadrants) to win.\n")
