@@ -225,34 +225,25 @@ class PyQuadrants:
                     print("It's a draw!")
                 break
 
-        # self.end_game()
-        end = input("\nPress Y to start a new game")
-        clear()
+        self.end_game()
 
     """
     This is for the end of the game
     It waits for the player to press a key to start a new game
     """
     def end_game(self):
-        print("Click any key to begin a new game.")
-        self.wait_for_key()
-        self.reset_game()
-        self.play_game()
-
-    def wait_for_key(self):
-        if os.name == 'nt':  # For Windows
-            import msvcrt
-            msvcrt.getch()
-            
-        else:  # For Unix-based systems (Linux, macOS)
-            import termios, tty
-            fd = sys.stdin.fileno()
-            old_settings = termios.tcgetattr(fd)
-            try:
-                tty.setraw(sys.stdin.fileno())
-                sys.stdin.read(1)
-            finally:
-                termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+        while True:
+            choice = input("Press Y to restart the game, or N to exit: ").strip().upper()
+            if choice == 'Y':
+                clear()
+                self.reset_game()
+                self.play_game()
+                break
+            elif choice == 'N':
+                print("Thank you for playing PyQuadrants!")
+                exit()
+            else:
+                print("Invalid choice. Please press Y to restart or N to exit.")
 
 """
 This initializes and starts the game
