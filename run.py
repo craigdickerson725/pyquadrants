@@ -203,6 +203,10 @@ class PyQuadrants:
         if os.name == 'nt':  # For Windows
             import msvcrt
             msvcrt.getch()
+        """
+        This comes from ChatGPT, and is used to apply the wait for key
+        in Linux and Mac operating systems
+        """    
         else:  # For Unix-based systems (Linux, macOS)
             import termios, tty
             fd = sys.stdin.fileno()
