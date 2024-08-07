@@ -11,6 +11,12 @@ Initializes colorama to color the quadrants
 """
 init()
 
+def clear():
+    """
+    Clear function to clean-up the terminal so things don't get messy.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+
 """
 This class will define the game's methods and attributes
 """
@@ -104,14 +110,17 @@ class PyQuadrants:
             try:
                 row = int(input("Enter row (0-3): "))
                 col = int(input("Enter col (0-3): "))
+                clear()
                 if 0 <= row <= 3 and 0 <= col <= 3:
                     if self.place_piece(row, col, 'X'):
                         break
                     else:
-                        print("Invalid move! Try again.")
+                        print(f"{row}, {col} is an invalid move! Try again.")
                 else:
-                    print("Invalid input! Please enter a number between 0 and 3.")
+                    print(f"{row}, {col} is an invalid input! Please enter a number between 0 and 3.")
             except ValueError:
+                clear()
+                self.print_board()
                 print("Invalid input! Enter numbers for row and col.")
 
     """
@@ -119,6 +128,7 @@ class PyQuadrants:
     It will help the computer to pick an effective move.
     """
     def ai_move(self):
+        clear()
         best_move = None
         max_gain = -1
         
@@ -150,21 +160,49 @@ class PyQuadrants:
 
         return gain
 
+    def intro(self):
+        print("Welcome to PyQuadrants!")
+        while True:
+            print("1. Instructions")
+            print("2. Play Game")
+            print("3. Quit Game")
+            choice = input("Type 1, 2, or 3\n")
+
+            if choice not in ["1", "2", "3"]:
+                print(f"{choice} is invalid. Please type 1, 2, or 3")
+            else:
+                if choice == "1":
+                    self.instructions()
+                elif choice == "2":
+                    clear()
+                    self.play_game()
+                elif choice == "3":
+                    clear()
+                    print("Thank you for playing PyQuadrants!")
+                    exit()
+
+    def instructions(self):
+        clear()
+        print("Player is 'X' and Computer is 'Y'.")
+        print("Take turns to place your piece on the board.")
+        print("Control more territories (rows, columns, or quadrants) to win.\n")
+        # additional instructions go here
+        input("Press ENTER to continue")
+        clear()
+
+
     """
     This is the main game loop
     It switches between players and checks for the end of the game
     """
     def play_game(self):
-        print("Welcome to PyQuadrants!")
-        print("Player is 'X' and Computer is 'Y'.")
-        print("Take turns to place your piece on the board.")
-        print("Control more territories (rows, columns, or quadrants) to win.\n")
 
         while True:
             self.print_board()
             current_player = self.players[self.current_player_index]
             print(f"Territories - Player: {self.territories['Player']}, Computer: {self.territories['Computer']}")
-            
+            input("\nPress ENTER to continue")
+
             if current_player == "Player":
                 print("Player's turn")
                 self.player_move()
@@ -187,7 +225,9 @@ class PyQuadrants:
                     print("It's a draw!")
                 break
 
-        self.end_game()
+        # self.end_game()
+        end = input("\nPress Y to start a new game")
+        clear()
 
     """
     This is for the end of the game
@@ -218,5 +258,6 @@ class PyQuadrants:
 This initializes and starts the game
 """
 if __name__ == "__main__":
+    clear()
     game = PyQuadrants()
-    game.play_game()
+    game.intro()
