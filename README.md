@@ -1,32 +1,46 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# [PYQUADRANTS](https://pyquadrants-ece1d63f094e.herokuapp.com)
 
-Welcome,
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/t/craigdickerson725/pyquadrants)](https://github.com/craigdickerson725/pyquadrants/commits/main)
+[![GitHub last commit](https://img.shields.io/github/last-commit/craigdickerson725/pyquadrants)](https://github.com/craigdickerson725/pyquadrants/commits/main)
+[![GitHub repo size](https://img.shields.io/github/repo-size/craigdickerson725/pyquadrants)](https://github.com/craigdickerson725/pyquadrants)
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **May 14, 2024**
+Welcome to PyQuadrants!  This game is intended to run in the Code Institute mock terminal in Heroku.  As far as I know, I invented this game (though it started out based off of the Gigamic game 'Quantik' and morphed into something totally different).  In this game, players will compete against the computer to gain control over rows, columns, or quadrants.  The instructions are as follows:
 
-## Reminders
+### PyQuadrants Instructions
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+Instructions:
 
-## Creating the Heroku app
+-The game board has four rows, four columns, and four quadrants.
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+-Rows are the horizontal lines, numbered from left to right.  
 
-1. `heroku/python`
-2. `heroku/nodejs`
+-Columns are the vertical lines, numbered from top to bottom.
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+-Quadrants are the four colored regions.
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+-The Player's game piece is X, and the Computer's is Y.
 
-Connect your GitHub repository and deploy as normal.
+-Players take turns placing their respective game pieces on the board.
 
-## Constraints
+-The goal is to gain control of as many rows, columns, and quadrants as possible.
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+-Control is established when a player's game pieces fill at least three of the four available spaces on a row, column, or quadrant.
 
----
+-Players continue taking turns placing their respective game pieces on the board until there are no more available spaces.
 
-Happy coding!
+-When there are no more available spaces remaining on the game board, then the game is over, and the player with the most points wins.
+
+Scoring:
+
+-Control is when three of four available spaces on a row, column, or quadrant are represented by one player.  
+Control = 1 point
+
+-Complete Control is when all four available spaces of a row, column, or quadrant are represented by one player.
+Complete Control = 3 points
+
+Good Luck!
+
+![screenshot](documentation/mockup.png)
+
+source: [amiresponsive](https://ui.dev/amiresponsive?url=https://pyquadrants-ece1d63f094e.herokuapp.com)
+
