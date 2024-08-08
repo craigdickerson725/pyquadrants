@@ -252,7 +252,7 @@ class PyQuadrants:
                 print("Thank you for playing PyQuadrants!")
                 exit()
             else:
-                print("Invalid choice. Please press Y to restart or N to exit.")
+                print("Invalid choice. Please press Y or N")
 
 """
 This initializes and starts the game
