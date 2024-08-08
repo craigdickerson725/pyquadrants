@@ -174,3 +174,15 @@ The primary functions used on this application are:
     -  Manages the end of the game, offering the player a choice to start a new game or exit.
 - `clear()`
     -  Clears the terminal screen, keeping the output clean and easy to read.
+
+### Imports
+
+I've used the following Python packages and/or external imported packages.
+- `os`: used for adding a `clear()` function
+- `colorama`: used for including color in the terminal
+- `random`: used to get a random choice from a list
+
+## Testing
+
+> [!NOTE]  
+> For all testing, please refer to the [TESTING.md](TESTING.md) file.
