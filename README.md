@@ -101,3 +101,10 @@ Being a big fan of both board games and strategy games, I thought I'd tackle cre
 ![screenshot](documentation/features/feature10.png)
 
 ![screenshot](documentation/features/feature11.png)
+
+### Future Features
+
+- Player Option to Increase Game Board Size
+    - For strategy gamers who have that kind of time on their hands, it would be great to add a 'medium' sized board, which would be four times larger than the normal size.  A 'big' sized board would be sixteen times the normal size--which would be for those extreme gamers!
+- Multi-player Capability
+    - It would be great to allow friends to play against one another, instead of against the computer.
