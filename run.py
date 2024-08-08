@@ -1,7 +1,6 @@
 import random # This is for the computer ai
 from colorama import Fore, Back, Style, init # This is for coloring quadrants
 import os
-import sys
 
 """
 Initializes colorama to color the quadrants
