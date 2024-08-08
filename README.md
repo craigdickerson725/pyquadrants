@@ -118,3 +118,59 @@ Being a big fan of both board games and strategy games, I thought I'd tackle cre
 - [![Python](https://img.shields.io/badge/Python-grey?logo=python&logoColor=3776AB)](https://www.python.org) used as the back-end programming language.
 - [![Heroku](https://img.shields.io/badge/Heroku-grey?logo=heroku&logoColor=430098)](https://www.heroku.com) used for hosting the deployed back-end site.
 - [![ChatGPT](https://img.shields.io/badge/ChatGPT-grey?logo=chromatic&logoColor=75A99C)](https://chat.openai.com) used to help debug, troubleshoot, and explain things.
+
+## Data Model
+
+### Classes & Functions
+
+The program uses classes as a blueprint for the project's objects (OOP). This allows for the object to be reusable.
+
+```python
+class PyQuadrants:
+    """ This class defines the game's methods and attributes """
+    class PyQuadrants:
+    def __init__(self):
+        self.reset_game()
+        self.colors = {
+            'quadrant_1': Back.RED,
+            'quadrant_2': Back.GREEN,
+            'quadrant_3': Back.YELLOW,
+            'quadrant_4': Back.BLUE,
+            'endc': Style.RESET_ALL
+        }
+```
+
+The primary functions used on this application are:
+
+- `__init__(self)`
+    - Initializes the game by resetting the board, setting up player information, and defining the colors for each quadrant.
+- `reset_game(self)`
+    - Resets the game board, player info, and territory scores, preparing the game for a new session.
+- `print_board(self)`
+    - Prints the current state of the game board, with each quadrant colored according to its position.
+- `color_cell(self, row, col, cell)`
+    - Colors a specific cell on the board based on its quadrant.
+- `is_valid_move(self, row, col)`
+    - Checks if a move is valid by ensuring the selected cell is empty.
+- `place_piece(self, row, col, piece)`
+    -  Places a player's piece on the board and updates the territory scores if the move is valid.
+- `update_territories(self, row, col, piece)`
+    -  Updates the territory score for the current player based on the latest move, checking rows, columns, and quadrants.
+- `score_territory(self, lst, piece)`
+    -  Calculates and returns the score for a given row, column, or quadrant based on how many pieces are controlled by the player.
+- `player_move(self)`
+    -  Handles input from the player for making a move, validating the input and the move.
+- `ai_move(self)`
+    -  Manages the computer's move by selecting the most effective move based on potential score gain.
+- `potential_gain(self, row, col, piece)`
+    -  Calculates the potential score gain for a specific move, used by the AI to decide its move.
+- `intro(self)`
+    -  Displays the introduction screen with options to view instructions, start the game, or quit.
+- `instructions(self)`
+    -  Provides detailed instructions on how to play the game.
+- `play_game(self)`
+    -  The main game loop that alternates turns between the player and the computer, checking for the end of the game after each move.
+- `end_game(self)`
+    -  Manages the end of the game, offering the player a choice to start a new game or exit.
+- `clear()`
+    -  Clears the terminal screen, keeping the output clean and easy to read.
