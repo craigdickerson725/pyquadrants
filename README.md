@@ -283,3 +283,17 @@ You can fork this repository by using the following steps:
 1. Log in to GitHub and locate the [GitHub Repository](https://github.com/craigdickerson725/pyquadrants)
 2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
 3. Once clicked, you should now have a copy of the original repository in your own GitHub account!
+
+### Local VS Deployment
+
+To my knowledge (as pertaining to testing in both the local and deployed versions of the program), there are no differences between the local version and deployed version.
+
+### Content
+
+| Source | Location | Notes |
+| --- | --- | --- |
+| [Markdown Builder](https://tim.2bn.dev/markdown-builder) | README and TESTING | tool to help generate the Markdown files |
+| [StackOverflow](https://stackoverflow.com/a/2450976) | quiz page | Fisher-Yates/Knuth shuffle in JS |
+| [Geeks for Geeks](https://www.geeksforgeeks.org/clear-screen-python/) | python basics | how to clear screen in python |
+| [Stack Overflow](https://stackoverflow.com/questions/2084508/clear-the-terminal-in-python) | questions | clear the terminal in python |
+| [YouTube](https://www.youtube.com/watch?v=u51Zjlnui4Y) | PP3 terminal | tutorial for adding color to the Python terminal |
