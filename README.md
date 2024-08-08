@@ -297,3 +297,10 @@ To my knowledge (as pertaining to testing in both the local and deployed version
 | [Geeks for Geeks](https://www.geeksforgeeks.org/clear-screen-python/) | python basics | how to clear screen in python |
 | [Stack Overflow](https://stackoverflow.com/questions/2084508/clear-the-terminal-in-python) | questions | clear the terminal in python |
 | [YouTube](https://www.youtube.com/watch?v=u51Zjlnui4Y) | PP3 terminal | tutorial for adding color to the Python terminal |
+
+### Acknowledgements
+
+- I would like to thank my Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN) for his support throughout the development of this project.
+- I would like to thank the [Code Institute Slack community](https://code-institute-room.slack.com) for the moral support; it kept me going during periods of self doubt and imposter syndrome.
+- I would like to thank my wife (Julia) and my daughter (Serafina) for their patience in playing this game many, many times; their testing and critiques helped me to stay on track.
+- I would like to thank my aunt (Sarah) for her input as I worked out the game rules.
