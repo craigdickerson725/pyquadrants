@@ -46,4 +46,58 @@ source: [amiresponsive](https://ui.dev/amiresponsive?url=https://pyquadrants-ece
 
 ## UX
 
-Being a big fan of both board games and strategy games, I thought I'd tackle creating one myself.  One of the goals was to keep it simple, short, and sweet, so I decided upon a square board with sixteen spaces.  The four spaces in each of the corners (quadrants) are colored, to show that they are each regions of their own.  So altogether, we have:  four rows, four columns, and four quadrants. The user and computer trade turns putting down their respective game pieces until the board is full.  
+Being a big fan of both board games and strategy games, I thought I'd tackle creating one myself.  One of the goals was to keep it simple, short, and sweet, so I decided upon a square board with sixteen spaces.  The four spaces in each of the corners (quadrants) are colored, to show that they are each regions of their own.  So altogether, we have:  four rows, four columns, and four quadrants. The user and computer trade turns putting down their respective game pieces until the board is full.
+
+## Features
+
+### Existing Features
+
+- **Colored Game Board**
+
+    - The game board features colors and a clearly marked grid to ensure that the user has a clear understanding of the available moves and territories.
+
+![screenshot](documentation/features/feature01.png)
+
+- **Easy to Use Input for Player Moves**
+
+    - The inputs for recording the Player's moves are clear and easy to use.  Simply add the row number and press ENTER, then the column number and press ENTER.  Easy-peasy!
+
+![screenshot](documentation/features/feature02.png)
+
+- **Clear Indicator to Show Each Computer Move**
+
+    - After each move by the Computer, the Player can see clearly where the Computer placed its piece.  It is both visible on the game board and written above the board.
+
+![screenshot](documentation/features/feature03.png)
+
+- **Active Score Tracker**
+
+    - There is a score tracker, which the player may refer to at any time to see how many points each participant currently has.
+
+![screenshot](documentation/features/feature04.png)
+
+- **End of Game Message With Option to Play Again or Exit**
+
+    - When the game is over, there is a message announcing the winner (or a draw, when applicable), with an option to press Y to start a new game, or to press N to exit the game.
+
+![screenshot](documentation/features/feature05.png)
+
+- **Invalid Input Messages**
+
+    - When the Player enters an invalid choice, an Invalid Input Error is given.  This also happens when the Player attempts to place a piece on an already occupied space.
+
+![screenshot](documentation/features/feature06.png)
+
+![screenshot](documentation/features/feature07.png)
+
+- **Option to View Instructions, Play or Exit Game**
+
+    - Upon starting the program, the Player is given an option to view the complete instructions, so that they may understand how to play the game.  Alternately, the Player may choose the option to Play, or Exit the game.
+
+![screenshot](documentation/features/feature08.png)
+
+![screenshot](documentation/features/feature09.png)
+
+![screenshot](documentation/features/feature10.png)
+
+![screenshot](documentation/features/feature11.png)
