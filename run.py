@@ -14,7 +14,7 @@ def clear():
     os.system("cls" if os.name == "nt" else "clear")
 
 """
-This class will define the game's methods and attributes
+This class defines the game's methods and attributes
 """
 class PyQuadrants:
     def __init__(self):
