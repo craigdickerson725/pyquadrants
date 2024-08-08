@@ -1,8 +1,5 @@
 import random # This is for the computer ai
 from colorama import Fore, Back, Style, init # This is for coloring quadrants
-"""
-The os and sys imports are for the 'any key' input at the end of the game
-"""
 import os
 import sys
 
@@ -181,12 +178,15 @@ class PyQuadrants:
                     print("Thank you for playing PyQuadrants!")
                     exit()
 
+    """
+    This is the instruction manual to help the user understand the game
+    """
     def instructions(self):
         clear()
         print("Instructions:\n")
         print("-The game board has four rows (horizontal), four columns (vertical),")
         print(" and four quadrants (colored regions).")
-        print("-Players take turn placing their game pieces on the board (Player is X,")
+        print("-Players take turns placing their game pieces on the board (Player is X,")
         print(" the Computer is Y).")
         print("-Control more territories (rows, columns, or quadrants) to win.")
         print("-Control is when one player occupies 3 of 4 available spaces in a row,")
@@ -199,7 +199,6 @@ class PyQuadrants:
         print("GOOD LUCK!\n")
         input("Press ENTER to continue")
         clear()
-
 
     """
     This is the main game loop
@@ -239,7 +238,7 @@ class PyQuadrants:
 
     """
     This is for the end of the game
-    It waits for the player to press a key to start a new game
+    It gives the user a chance to start a new game or exit the game
     """
     def end_game(self):
         while True:
