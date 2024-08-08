@@ -4,7 +4,7 @@
 [![GitHub last commit](https://img.shields.io/github/last-commit/craigdickerson725/pyquadrants)](https://github.com/craigdickerson725/pyquadrants/commits/main)
 [![GitHub repo size](https://img.shields.io/github/repo-size/craigdickerson725/pyquadrants)](https://github.com/craigdickerson725/pyquadrants)
 
-Welcome to PyQuadrants!  This game is intended to run in the Code Institute mock terminal in Heroku.  As far as I know, I invented this game (though it started out based off of the Gigamic game 'Quantik' and morphed into something totally different).  In this game, players will compete against the computer to gain control over rows, columns, or quadrants.  The instructions are as follows:
+Welcome to PyQuadrants!  This game is intended to run in the Code Institute mock terminal in Heroku.  As far as I know, I invented this game (though it started out based off of the Gigamic game 'Quantik' and morphed into something totally different).  In this game, players will compete against the computer to gain control over rows, columns, or quadrants.  My idea was to create a game that required strategy, but which is easy to understand by adults and children alike.  Also, the game only takes a few minutes to play, so it is more likely to hold the user's interest until the end (unlike many strategy games).  The instructions are as follows:
 
 ### PyQuadrants Instructions
 
@@ -44,3 +44,6 @@ Good Luck!
 
 source: [amiresponsive](https://ui.dev/amiresponsive?url=https://pyquadrants-ece1d63f094e.herokuapp.com)
 
+## UX
+
+Being a big fan of both board games and strategy games, I thought I'd tackle creating one myself.  One of the goals was to keep it simple, short, and sweet, so I decided upon a square board with sixteen spaces.  The four spaces in each of the corners (quadrants) are colored, to show that they are each regions of their own.  So altogether, we have:  four rows, four columns, and four quadrants. The user and computer trade turns putting down their respective game pieces until the board is full.  
