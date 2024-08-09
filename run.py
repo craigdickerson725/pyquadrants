@@ -1,22 +1,21 @@
-import random # This is for the computer ai
-from colorama import Fore, Back, Style, init # This is for coloring quadrants
+import random  # This is for the computer ai
+from colorama import Fore, Back, Style, init  # This is for coloring quadrants
 import os
 
-"""
-Initializes colorama to color the quadrants
-"""
-init()
+init()  # Initializes colorama to color the quadrants
+
 
 def clear():
     """
-    Clear function to clean-up the terminal so things don't get messy.
+    Clears function to clean-up the terminal so things don't get messy.
     """
     os.system("cls" if os.name == "nt" else "clear")
 
-"""
-This class defines the game's methods and attributes
-"""
+
 class PyQuadrants:
+    """
+    This class defines the game's methods and attributes
+    """
     def __init__(self):
         self.reset_game()
         self.colors = {
@@ -77,13 +76,10 @@ class PyQuadrants:
 
     def update_territories(self, row, col, piece):
         current_player = self.players[self.current_player_index]
-        
         # Checks the row
         self.territories[current_player] += self.score_territory([self.board[row][i] for i in range(4)], piece)
-        
         # Checks the column
         self.territories[current_player] += self.score_territory([self.board[i][col] for i in range(4)], piece)
-        
         # Checks the quadrant
         start_row, start_col = 2 * (row // 2), 2 * (col // 2)
         self.territories[current_player] += self.score_territory([self.board[i][j] for i in range(start_row, start_row + 2) for j in range(start_col, start_col + 2)], piece)
@@ -127,7 +123,6 @@ class PyQuadrants:
         clear()
         best_move = None
         max_gain = -1
-        
         for row in range(4):
             for col in range(4):
                 if self.is_valid_move(row, col):
@@ -135,12 +130,11 @@ class PyQuadrants:
                     if potential_gain > max_gain:
                         max_gain = potential_gain
                         best_move = (row, col)
-        
         if best_move:
             row, col = best_move
             self.place_piece(row, col, 'Y')
             print(f"Computer placed Y at ({row}, {col})")
-    
+
     def potential_gain(self, row, col, piece):
         gain = 0
 
@@ -253,10 +247,11 @@ class PyQuadrants:
             else:
                 print("Invalid choice. Please press Y or N")
 
-"""
-This initializes and starts the game
-"""
+
 if __name__ == "__main__":
+    """
+    This initializes and starts the game
+    """
     clear()
     game = PyQuadrants()
     game.intro()
