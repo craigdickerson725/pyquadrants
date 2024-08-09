@@ -78,12 +78,12 @@ class PyQuadrants:
     def update_territories(self, row, col, piece):
         current_player = self.players[self.current_player_index]
         # Checks the row
-        self.territories[current_player] += self.score_territory([self.board[row][i] for i in range(4)], piece)
+        self.territories[current_player] += self.score_territory([self.board[row][i] for i in range(4)], piece)  # noqa
         # Checks the column
-        self.territories[current_player] += self.score_territory([self.board[i][col] for i in range(4)], piece)
+        self.territories[current_player] += self.score_territory([self.board[i][col] for i in range(4)], piece)  # noqa
         # Checks the quadrant
         start_row, start_col = 2 * (row // 2), 2 * (col // 2)
-        self.territories[current_player] += self.score_territory([self.board[i][j] for i in range(start_row, start_row + 2) for j in range(start_col, start_col + 2)], piece)
+        self.territories[current_player] += self.score_territory([self.board[i][j] for i in range(start_row, start_row + 2) for j in range(start_col, start_col + 2)], piece)  # noqa
 
     """
     This checks how many points to give
@@ -112,7 +112,10 @@ class PyQuadrants:
                         print(f"{row}, {col} is an invalid move! Try again.")
                 else:
                     self.print_board()
-                    print(f"{row}, {col} is an invalid input! Please enter a number between 0 and 3.")
+                    print(
+                        f"{row}, {col} is an invalid input! "
+                        f"Please enter a number between 0 and 3."
+                        )
             except ValueError:
                 clear()
                 self.print_board()
@@ -147,18 +150,21 @@ class PyQuadrants:
         gain = 0
 
         # Checks gain potential in a row
-        gain += self.score_territory([self.board[row][i] for i in range(4)], piece)
+        gain += self.score_territory([self.board[row][i] for i in range(4)], piece)  # noqa
 
         # Checks gain potential in a column
-        gain += self.score_territory([self.board[i][col] for i in range(4)], piece)
+        gain += self.score_territory([self.board[i][col] for i in range(4)], piece)  # noqa
 
         # Checks gain potential in a quadrant
         start_row, start_col = 2 * (row // 2), 2 * (col // 2)
-        gain += self.score_territory([self.board[i][j] for i in range(start_row, start_row + 2) for j in range(start_col, start_col + 2)], piece)
+        gain += self.score_territory([self.board[i][j] for i in range(start_row, start_row + 2) for j in range(start_col, start_col + 2)], piece)  # noqa
 
         return gain
 
     def intro(self):
+        """
+        This is for program startup
+        """
         print("Welcome to PyQuadrants!")
         while True:
             print("1. Instructions")
@@ -167,7 +173,8 @@ class PyQuadrants:
             choice = input("Type 1, 2, or 3\n")
 
             if choice not in ["1", "2", "3"]:
-                print(f"{choice} is invalid. Please type 1, 2, or 3")
+                clear()
+                print(f"Invalid choice. Please type 1, 2, or 3")
             else:
                 if choice == "1":
                     self.instructions()
@@ -185,17 +192,37 @@ class PyQuadrants:
     def instructions(self):
         clear()
         print("Instructions:\n")
-        print("-The game board has four rows (horizontal), four columns (vertical),")
+        print(
+            "-The game board has four rows (horizontal), "
+            "four columns (vertical),"
+            )
         print(" and four quadrants (colored regions).")
-        print("-Players take turns placing their game pieces on the board (Player is X,")
+        print(
+            "-Players take turns placing their game pieces on the board "
+            "(Player is X,"
+            )
         print(" the Computer is Y).")
-        print("-Control more territories (rows, columns, or quadrants) to win.")
-        print("-Control is when one player occupies 3 of 4 available spaces in a row,")
+        print(
+            "-Control more territories (rows, columns, or quadrants) to win."
+            )
+        print(
+            "-Control is when one player occupies 3 of 4 "
+            "available spaces in a row,"
+            )
         print(" column, or quadrant.")
-        print("-Complete Control is when one player occupies all four spaces of a row,")
+        print(
+            "-Complete Control is when one player occupies "
+            "all four spaces of a row,"
+            )
         print(" column, or quadrant.")
-        print("-Control is worth 1 point, and Complete Control is worth 3 points.")
-        print("-When all spaces on the game board are occupied, the game is over,")
+        print(
+            "-Control is worth 1 point, and Complete Control "
+            "is worth 3 points."
+            )
+        print(
+            "-When all spaces on the game board are occupied, "
+            "the game is over,"
+            )
         print(" and the player with the most points wins.\n")
         print("GOOD LUCK!\n")
         input("Press ENTER to continue")
@@ -210,7 +237,10 @@ class PyQuadrants:
         while True:
             self.print_board()
             current_player = self.players[self.current_player_index]
-            print(f"Territories - Player: {self.territories['Player']}, Computer: {self.territories['Computer']}")
+            print(
+                f"Territories - Player: {self.territories['Player']}, "
+                f"Computer: {self.territories['Computer']}"
+                )
             # input("\nPress ENTER to continue")
 
             if current_player == "Player":
@@ -222,11 +252,14 @@ class PyQuadrants:
 
             self.current_player_index = (self.current_player_index + 1) % 2
 
-            if all(self.board[row][col] != '.' for row in range(4) for col in range(4)):
+            if all(self.board[row][col] != '.' for row in range(4) for col in range(4)):  # noqa
                 self.print_board()
                 player_territories = self.territories['Player']
                 computer_territories = self.territories['Computer']
-                print(f"Final Score - Player: {player_territories}, Computer: {computer_territories}")
+                print(
+                    f"Final Score - Player: {player_territories}, "
+                    f"Computer: {computer_territories}"
+                    )
                 if player_territories > computer_territories:
                     print("Player wins!")
                 elif computer_territories > player_territories:
@@ -243,7 +276,7 @@ class PyQuadrants:
     """
     def end_game(self):
         while True:
-            choice = input("Press Y to restart the game, or N to exit: ").strip().upper()
+            choice = input("Press Y to restart the game, or N to exit: ").strip().upper()  # noqa
             if choice == 'Y':
                 clear()
                 self.reset_game()
@@ -253,10 +286,9 @@ class PyQuadrants:
                 print("Thank you for playing PyQuadrants!")
                 exit()
             else:
-                print("Invalid choice.")
-                time.sleep(0.5)
                 clear()
-                
+                print("Invalid choice.")
+
 
 if __name__ == "__main__":
     """
