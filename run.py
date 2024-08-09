@@ -1,6 +1,7 @@
 import random  # This is for the computer ai
 from colorama import Fore, Back, Style, init  # This is for coloring quadrants
 import os
+import time  # To give a bit of space between moves
 
 init()  # Initializes colorama to color the quadrants
 
@@ -107,19 +108,26 @@ class PyQuadrants:
                     if self.place_piece(row, col, 'X'):
                         break
                     else:
+                        self.print_board()
                         print(f"{row}, {col} is an invalid move! Try again.")
                 else:
+                    self.print_board()
                     print(f"{row}, {col} is an invalid input! Please enter a number between 0 and 3.")
             except ValueError:
                 clear()
                 self.print_board()
                 print("Invalid input! Enter numbers for row and col.")
+        self.print_board()
+        time.sleep(1.5)
 
     """
     This is to create ai for the computer's move.
     It will help the computer to pick an effective move.
     """
     def ai_move(self):
+        clear()
+        print("Computer is making move...")
+        time.sleep(1.5)
         clear()
         best_move = None
         max_gain = -1
@@ -203,7 +211,7 @@ class PyQuadrants:
             self.print_board()
             current_player = self.players[self.current_player_index]
             print(f"Territories - Player: {self.territories['Player']}, Computer: {self.territories['Computer']}")
-            input("\nPress ENTER to continue")
+            # input("\nPress ENTER to continue")
 
             if current_player == "Player":
                 print("Player's turn")
@@ -245,8 +253,10 @@ class PyQuadrants:
                 print("Thank you for playing PyQuadrants!")
                 exit()
             else:
-                print("Invalid choice. Please press Y or N")
-
+                print("Invalid choice.")
+                time.sleep(0.5)
+                clear()
+                
 
 if __name__ == "__main__":
     """
