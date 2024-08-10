@@ -181,6 +181,7 @@ I've used the following Python packages and/or external imported packages.
 - `os`: used for adding a `clear()` function
 - `colorama`: used for including color in the terminal
 - `random`: used to get a random choice from a list
+- `time`: used to give space between player's move and computer's move
 
 ## Testing
 
